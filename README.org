@@ -1,0 +1,41 @@
+* What is this?
+My attempt to build a citation network for the papers I read. Meant for command line usage. Emacs wrappers welcome.
+
+* Overview
+#+begin_src sh :results output
+python citation-graph-builder.py -h
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Usage: citation-graph-builder.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -i, --initialize      Create yaml file with entries in bib file. Required
+                        step.
+  -u, --update          update yaml file with new entries in bib file
+  -b BIB_PATH, --bib-path=BIB_PATH
+                        path to yaml file
+  -y YAML_PATH, --yaml-path=YAML_PATH
+                        path to yaml file
+  -a, --add-edge        Add edge between head and tail
+  --head=HEAD           bib key of head. this is the paper that cites.
+  --tail=TAIL           bib key of tail. this is the paper that is cited
+#+end_example
+
+* Usage
+Step 1: Initialize the graph. Populate yaml file with nodes.
+#+begin_src sh
+python citation-graph-builder.py -i -b path/to/bib/file -y path/to/yaml/file
+#+end_src
+
+Step 2: Add edges by specifying the bib keys
+#+begin_src sh
+python citation-graph-builder.py -a --head citing_key --tail cited_key
+#+end_src
+
+Step 3: Update graph whenever the source bib file changes
+#+begin_src sh
+python citation-graph-builder.py -u -b path/to/bib/file -y path/to/yaml/file
+#+end_src

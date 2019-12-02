@@ -6,8 +6,8 @@ My attempt to build a citation network for the papers I read. Meant for command 
 python citation-graph-builder.py -h
 #+end_src
 
-#+RESULTS:
-#+begin_example
+
+#+begin_src
 Usage: citation-graph-builder.py [options]
 
 Options:
@@ -22,7 +22,7 @@ Options:
   -a, --add-edge        Add edge between head and tail
   --head=HEAD           bib key of head. this is the paper that cites.
   --tail=TAIL           bib key of tail. this is the paper that is cited
-#+end_example
+#+end_src
 
 * Usage
 Step 1: Initialize the graph. Populate yaml file with nodes.
